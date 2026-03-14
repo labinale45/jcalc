@@ -1,11 +1,150 @@
+import Link from "next/link";
+import { CalculatorCard } from "@/components/CalculatorCard";
+import { AdBlock } from "@/components/AdBlock";
 import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <h1 className="text-4xl font-bold">JCalc</h1>
-      </main>
-    </div>
+    <article className="mx-auto max-w-4xl px-4 py-8">
+      <header className="mb-12 text-center">
+        <div className="flex justify-center items-center gap-2 mb-3">   
+          <Image
+            src="/Jcalc.png"
+            alt="JCalc"
+            width={120}
+            height={80}
+            className="h-16 w-auto"
+          />
+          <h1 className="mb-3 text-4xl font-bold text-slate-800 text-center">
+          JCalc
+       </h1>
+       </div>
+        
+        <p className="text-xl text-slate-600">
+          Smart Online Calculators for Everyday Math and Finance
+        </p>
+        <p className="mt-4 max-w-2xl mx-auto text-slate-600">
+          Free, fast, and easy-to-use calculators for loans, investments,
+          percentages, and more. No signup, no downloads—just results.
+        </p>
+      </header>
+
+      <AdBlock slot="header" format="horizontal" className="mb-10 min-h-[90px]" />
+
+      <section aria-labelledby="popular-calculators">
+        <h2 id="popular-calculators" className="mb-6 text-2xl font-semibold text-slate-800">
+          Popular Calculators
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <CalculatorCard
+            title="Loan Calculator"
+            description="Calculate monthly payments, total interest, and amortization for any fixed-rate loan."
+            href="/loan-calculator"
+            icon="💰"
+          />
+          <CalculatorCard
+            title="ROI Calculator"
+            description="Measure return on investment. Enter initial and final value for instant ROI percentage."
+            href="/roi-calculator"
+            icon="📈"
+          />
+          <CalculatorCard
+            title="Percentage Calculator"
+            description="X% of Y, Y is what % of X, and percentage change. Handles discounts, tips, and more."
+            href="/percentage-calculator"
+            icon="%"
+          />
+        </div>
+      </section>
+
+      <AdBlock slot="below-result" format="rectangle" className="my-10 min-h-[250px]" />
+
+      <section className="space-y-8">
+        <h2 id="financial-calculators" className="text-2xl font-semibold text-slate-800">
+          Financial Calculators
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <CalculatorCard
+            title="Loan Calculator"
+            description="Estimate monthly payments for mortgages, auto loans, and personal loans."
+            href="/loan-calculator"
+          />
+          <CalculatorCard
+            title="ROI Calculator"
+            description="Calculate return on investment for stocks, real estate, and business ventures."
+            href="/roi-calculator"
+          />
+        </div>
+
+        <h2 id="math-calculators" className="text-2xl font-semibold text-slate-800">
+          Math Calculators
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <CalculatorCard
+            title="Percentage Calculator"
+            description="Solve percentage problems: X% of Y, what percent, and percentage change."
+            href="/percentage-calculator"
+          />
+        </div>
+
+        <AdBlock slot="between-content" format="horizontal" className="min-h-[90px]" />
+
+        <section>
+          <h2 id="about-online-calculators" className="mb-4 text-2xl font-semibold text-slate-800">
+            About Online Calculators
+          </h2>
+          <p className="text-slate-600">
+            Online calculators provide instant, accurate results for everyday
+            math and finance tasks. Whether you&apos;re planning a loan, evaluating
+            an investment, or working with percentages, JCalc delivers reliable
+            answers without signup or installation. Our tools run entirely in
+            your browser—your data never leaves your device.
+          </p>
+          <p className="mt-4 text-slate-600">
+            JCalc is designed for clarity and speed. Each calculator includes
+            formula explanations, example calculations, and FAQs to help you
+            understand the results. We offer a growing suite of calculators for
+            finance, math, and everyday life. Bookmark this page for quick
+            access to all tools.
+          </p>
+        </section>
+
+        <section>
+          <h2 id="recently-added" className="mb-4 text-2xl font-semibold text-slate-800">
+            Recently Added Tools
+          </h2>
+          <ul className="space-y-2 text-slate-600">
+            <li>
+              <Link
+                href="/loan-calculator"
+                className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              >
+                Loan Calculator
+              </Link>{" "}
+              — Monthly payment and amortization
+            </li>
+            <li>
+              <Link
+                href="/roi-calculator"
+                className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              >
+                ROI Calculator
+              </Link>{" "}
+              — Return on investment
+            </li>
+            <li>
+              <Link
+                href="/percentage-calculator"
+                className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              >
+                Percentage Calculator
+              </Link>{" "}
+              — X% of Y, percent change, and more
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <AdBlock slot="footer" format="horizontal" className="mt-12 min-h-[90px]" />
+    </article>
   );
 }
