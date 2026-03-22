@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CurrencyProvider } from "@/contexts/CurrencyContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,11 +69,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-slate-50 font-sans text-slate-800 antialiased`}
       >
-        <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <CurrencyProvider>
+          <Header />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </CurrencyProvider>
       </body>
     </html>
   );

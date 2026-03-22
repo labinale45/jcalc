@@ -8,6 +8,11 @@ const CALCULATORS = [
   { name: "Loan Calculator", href: "/loan-calculator", description: "estimate monthly payments" },
   { name: "ROI Calculator", href: "/roi-calculator", description: "measure investment returns" },
   { name: "Percentage Calculator", href: "/percentage-calculator", description: "calculate percentages quickly" },
+  { name: "Profit & Pricing", href: "/profit-pricing-calculator", description: "margin and markup" },
+  { name: "Break-even", href: "/break-even-calculator", description: "find break-even point" },
+  { name: "Cash Flow", href: "/cash-flow-calculator", description: "net cash flow" },
+  { name: "Growth", href: "/growth-calculator", description: "CAGR and growth rate" },
+  { name: "Unit Economics", href: "/unit-economics-calculator", description: "CAC and LTV" },
 ];
 
 export function InternalLinks({ currentTool }: InternalLinksProps) {

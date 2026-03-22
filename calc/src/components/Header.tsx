@@ -8,6 +8,11 @@ const navLinks = [
   { href: "/loan-calculator", label: "Loan" },
   { href: "/roi-calculator", label: "ROI" },
   { href: "/percentage-calculator", label: "Percentage" },
+  { href: "/profit-pricing-calculator", label: "Profit" },
+  { href: "/break-even-calculator", label: "Break-even" },
+  { href: "/cash-flow-calculator", label: "Cash Flow" },
+  { href: "/growth-calculator", label: "Growth" },
+  { href: "/unit-economics-calculator", label: "Unit Econ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

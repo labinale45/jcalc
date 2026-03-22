@@ -28,7 +28,7 @@ export function FormInput({
           id={id}
           type="number"
           step="any"
-          className={`w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:border-[#66A3FF] focus:outline-none focus:ring-1 focus:ring-[#66A3FF] ${
+          className={`w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:border-[#66A3FF] focus:outline-none focus:ring-1 focus:ring-[#66A3FF]  ${
             unit ? "pr-12" : ""
           } ${className}`}
           aria-describedby={hint ? `${id}-hint` : undefined}

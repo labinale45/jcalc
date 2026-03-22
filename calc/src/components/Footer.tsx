@@ -48,6 +48,31 @@ export function Footer() {
                 Percentage Calculator
               </Link>
             </li>
+            <li>
+              <Link href="/profit-pricing-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Profit & Pricing
+              </Link>
+            </li>
+            <li>
+              <Link href="/break-even-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Break-even
+              </Link>
+            </li>
+            <li>
+              <Link href="/cash-flow-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Cash Flow
+              </Link>
+            </li>
+            <li>
+              <Link href="/growth-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Growth
+              </Link>
+            </li>
+            <li>
+              <Link href="/unit-economics-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Unit Economics
+              </Link>
+            </li>
           </ul>
         </nav>
         <p className="text-sm text-slate-500">

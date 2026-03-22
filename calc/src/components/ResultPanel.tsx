@@ -1,13 +1,19 @@
+"use client";
+
+import { ExportResults } from "./ExportResults";
+
 interface ResultPanelProps {
   title: string;
   items: Array<{ label: string; value: string | number }>;
   visible?: boolean;
+  showExport?: boolean;
 }
 
 export function ResultPanel({
   title,
   items,
   visible = true,
+  showExport = false,
 }: ResultPanelProps) {
   if (!visible) return null;
 
@@ -17,9 +23,12 @@ export function ResultPanel({
       role="region"
       aria-label={`${title} results`}
     >
-      <h3 className="mb-4 text-lg font-semibold text-slate-800">
-        {title}
-      </h3>
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <h3 className="text-lg font-semibold text-slate-800">
+          {title}
+        </h3>
+        {showExport && <ExportResults title={title} items={items} />}
+      </div>
       <dl className="space-y-3">
         {items.map(({ label, value }) => (
           <div

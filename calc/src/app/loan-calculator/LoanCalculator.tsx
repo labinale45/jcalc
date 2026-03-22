@@ -3,16 +3,12 @@
 import { useState, useCallback } from "react";
 import { FormInput } from "@/components/FormInput";
 import { ResultPanel } from "@/components/ResultPanel";
+import { CurrencySelector } from "@/components/CurrencySelector";
 import { calculateLoanPayment } from "@/lib/loanFormula";
-
-const formatCurrency = (n: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  }).format(n);
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 export function LoanCalculator() {
+  const { format, symbol } = useCurrency();
   const [principal, setPrincipal] = useState<string>("200000");
   const [annualRate, setAnnualRate] = useState<string>("6");
   const [termYears, setTermYears] = useState<string>("30");
@@ -27,7 +23,8 @@ export function LoanCalculator() {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-slate-200 bg-white p-6">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 ">
+        <CurrencySelector className="mb-4" />
         <form
           className="grid gap-4 sm:grid-cols-3"
           onSubmit={(e) => e.preventDefault()}
@@ -36,7 +33,7 @@ export function LoanCalculator() {
           <FormInput
             id="principal"
             label="Loan amount"
-            unit="$"
+            unit={symbol}
             value={principal}
             onChange={(e) => setPrincipal(e.target.value)}
             min="1"
@@ -66,13 +63,14 @@ export function LoanCalculator() {
       </div>
 
       {result && (
-        <ResultPanel
-          title="Results"
-          visible
-          items={[
-            { label: "Monthly payment", value: formatCurrency(result.monthlyPayment) },
-            { label: "Total payment", value: formatCurrency(result.totalPayment) },
-            { label: "Total interest", value: formatCurrency(result.totalInterest) },
+          <ResultPanel
+            title="Results"
+            visible
+            showExport
+            items={[
+            { label: "Monthly payment", value: format(result.monthlyPayment) },
+            { label: "Total payment", value: format(result.totalPayment) },
+            { label: "Total interest", value: format(result.totalInterest) },
           ]}
         />
       )}
@@ -82,9 +80,9 @@ export function LoanCalculator() {
           title="Amortization preview (first 3 months)"
           visible
           items={result.amortizationPreview.flatMap((row) => [
-            { label: `Month ${row.month} principal`, value: formatCurrency(row.principal) },
-            { label: `Month ${row.month} interest`, value: formatCurrency(row.interest) },
-            { label: `Month ${row.month} balance`, value: formatCurrency(row.balance) },
+            { label: `Month ${row.month} principal`, value: format(row.principal) },
+            { label: `Month ${row.month} interest`, value: format(row.interest) },
+            { label: `Month ${row.month} balance`, value: format(row.balance) },
           ])}
         />
       )}
