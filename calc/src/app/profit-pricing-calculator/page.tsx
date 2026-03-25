@@ -1,14 +1,21 @@
-import type { Metadata } from "next";
 import { ProfitPricingCalculator } from "./ProfitPricingCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Profit & Pricing Calculator | Margin & Markup",
   description:
     "Calculate profit, margin, markup, and optimal pricing. Free business calculator for cost, price, and revenue analysis.",
-};
+  path: "/profit-pricing-calculator",
+  keywords: [
+    "profit margin calculator",
+    "markup calculator",
+    "pricing calculator",
+    "business calculator",
+  ],
+});
 
 const faqItems = [
   {

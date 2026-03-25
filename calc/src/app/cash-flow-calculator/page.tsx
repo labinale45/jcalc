@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { CashFlowCalculator } from "./CashFlowCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Cash Flow Calculator | Net Cash Flow",
   description:
     "Calculate net cash flow from inflows and outflows. Free business calculator for cash flow analysis.",
-};
+  path: "/cash-flow-calculator",
+  keywords: ["cash flow calculator", "net cash flow", "business cash flow"],
+});
 
 const faqItems = [
   {

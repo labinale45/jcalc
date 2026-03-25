@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy",
   description:
     "JCalc Privacy Policy. Learn how we collect, use, and protect your information when you use our free online calculators.",
-};
+  path: "/privacy-policy",
+  keywords: ["privacy policy", "cookies", "Google Analytics", "Google AdSense"],
+});
 
 export default function PrivacyPolicyPage() {
   return (
@@ -54,11 +56,37 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc pl-6 space-y-1 mt-2">
             <li>Google Analytics for traffic analysis</li>
-            <li>Google AdSense for advertising</li>
+            <li>Google AdSense for advertising (including personalized ads where applicable)</li>
           </ul>
           <p className="mt-2">
-            These services have their own privacy policies. We encourage you to review
-            them.
+            Google describes how it uses data in ads and on partner sites in its{" "}
+            <a
+              href="https://policies.google.com/technologies/ads"
+              className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Advertising Policy
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Privacy Policy
+            </a>
+            . You can manage ad personalization through{" "}
+            <a
+              href="https://www.google.com/settings/ads"
+              className="text-[#66A3FF] underline hover:text-[#5592e6]"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Google Ads Settings
+            </a>
+            .
           </p>
         </section>
 

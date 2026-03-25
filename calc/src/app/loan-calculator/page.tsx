@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
 import { LoanCalculator } from "@/app/loan-calculator/LoanCalculator";
 import { AdBlock } from "@/components/AdBlock";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Free Loan Calculator | Monthly Payment & Amortization",
   description:
     "Calculate monthly loan payments, total interest, and amortization schedule. Free online loan calculator for mortgages, auto loans, and personal loans. No signup required.",
-  openGraph: {
-    title: "Free Loan Calculator | Monthly Payment & Amortization | JCalc",
-    description:
-      "Calculate monthly loan payments, total interest, and amortization. Free tool for mortgages, auto loans, and personal loans.",
-    type: "website",
-  },
-};
+  path: "/loan-calculator",
+  keywords: [
+    "loan calculator",
+    "mortgage calculator",
+    "amortization",
+    "monthly payment",
+    "auto loan calculator",
+    "personal loan calculator",
+  ],
+});
 
 const faqItems = [
   {

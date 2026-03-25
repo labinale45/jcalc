@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About JCalc",
   description:
     "Learn about JCalc. We provide free, easy-to-use online calculators for loans, ROI, percentages, and more. No signup required.",
-};
+  path: "/about",
+  keywords: ["JCalc", "about", "online calculators"],
+});
 
 export default function AboutPage() {
   return (

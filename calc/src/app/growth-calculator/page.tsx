@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { GrowthCalculator } from "./GrowthCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Growth Calculator | CAGR & Growth Rate",
   description:
     "Calculate growth rate and CAGR. Free calculator for revenue, user, or metric growth analysis.",
-};
+  path: "/growth-calculator",
+  keywords: ["CAGR calculator", "growth rate calculator", "compound annual growth rate"],
+});
 
 const faqItems = [
   {

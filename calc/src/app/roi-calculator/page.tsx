@@ -1,21 +1,23 @@
-import type { Metadata } from "next";
 import { ROICalculator } from "./ROICalculator";
 import { AdBlock } from "@/components/AdBlock";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Free ROI Calculator | Return on Investment",
   description:
     "Calculate return on investment (ROI) instantly. Free ROI calculator for stocks, real estate, and business. Measure profit or loss as a percentage. No signup required.",
-  openGraph: {
-    title: "Free ROI Calculator | Return on Investment | JCalc",
-    description:
-      "Calculate ROI for any investment. Free tool for stocks, real estate, and business. Instant results.",
-    type: "website",
-  },
-};
+  path: "/roi-calculator",
+  keywords: [
+    "ROI calculator",
+    "return on investment",
+    "investment calculator",
+    "stock ROI",
+    "real estate ROI",
+  ],
+});
 
 const faqItems = [
   {

@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { UnitEconomicsCalculator } from "./UnitEconomicsCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Unit Economics Calculator | CAC & LTV",
   description:
     "Calculate Customer Acquisition Cost (CAC), Lifetime Value (LTV), and LTV:CAC ratio. Free business calculator.",
-};
+  path: "/unit-economics-calculator",
+  keywords: ["CAC calculator", "LTV calculator", "unit economics", "LTV CAC ratio"],
+});
 
 const faqItems = [
   {

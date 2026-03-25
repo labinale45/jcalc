@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { BreakEvenCalculator } from "./BreakEvenCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Break-even Calculator | Find Your Break-even Point",
   description:
     "Calculate break-even point in units and revenue. Free business calculator for fixed costs, variable costs, and pricing.",
-};
+  path: "/break-even-calculator",
+  keywords: ["break-even calculator", "break-even analysis", "contribution margin", "fixed costs"],
+});
 
 const faqItems = [
   {

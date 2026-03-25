@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Terms and Conditions",
   description:
     "JCalc Terms and Conditions. Read the terms of use for our free online calculators and services.",
-};
+  path: "/terms",
+  keywords: ["terms of use", "JCalc"],
+});
 
 export default function TermsPage() {
   return (
@@ -54,6 +56,19 @@ export default function TermsPage() {
             JCalc and its operators shall not be liable for any indirect, incidental,
             special, or consequential damages arising from your use of the Site or any
             reliance on calculator results.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-slate-800">Advertising</h2>
+          <p>
+            The Site may show third-party advertisements (for example through Google
+            AdSense). Advertisers may use cookies or similar technologies; see our{" "}
+            <a href="/privacy-policy" className="text-[#66A3FF] underline hover:text-[#5592e6]">
+              Privacy Policy
+            </a>
+            . JCalc does not control the content of third-party ads and is not responsible
+            for products or services advertised.
           </p>
         </section>
 

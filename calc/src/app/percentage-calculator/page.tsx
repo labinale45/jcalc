@@ -1,21 +1,23 @@
-import type { Metadata } from "next";
 import { PercentageCalculator } from "./PercentageCalculator";
 import { AdBlock } from "@/components/AdBlock";
 import { FAQSection } from "@/components/FAQSection";
 import { FormulaExplanation } from "@/components/FormulaExplanation";
 import { InternalLinks } from "@/components/InternalLinks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Free Percentage Calculator | X% of Y, Percent Change",
   description:
     "Calculate percentages instantly: X% of Y, Y is what percent of X, and percentage increase/decrease. Free online percentage calculator. No signup required.",
-  openGraph: {
-    title: "Free Percentage Calculator | X% of Y, Percent Change | JCalc",
-    description:
-      "Calculate percentages for any scenario. X% of Y, Y is what % of X, percentage change. Free tool.",
-    type: "website",
-  },
-};
+  path: "/percentage-calculator",
+  keywords: [
+    "percentage calculator",
+    "percent change",
+    "percent of a number",
+    "discount calculator",
+    "percentage increase",
+  ],
+});
 
 const faqItems = [
   {

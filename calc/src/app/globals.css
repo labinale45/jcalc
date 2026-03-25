@@ -27,4 +27,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Touch-friendly tap targets on mobile */
+@media (max-width: 1023px) {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

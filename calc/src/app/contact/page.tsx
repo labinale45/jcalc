@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact Us",
   description:
     "Contact JCalc. Get in touch with questions, feedback, or partnership inquiries about our free online calculators.",
-};
+  path: "/contact",
+  keywords: ["contact", "JCalc"],
+});
 
 export default function ContactPage() {
   return (

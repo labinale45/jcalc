@@ -2,6 +2,10 @@ import Link from "next/link";
 import { CalculatorCard } from "@/components/CalculatorCard";
 import { AdBlock } from "@/components/AdBlock";
 import Image from "next/image";
+import { homeMetadata } from "@/lib/seo";
+
+export const metadata = homeMetadata();
+
 export default function HomePage() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-8">
