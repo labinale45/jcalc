@@ -5,11 +5,11 @@ import { InternalLinks } from "@/components/InternalLinks";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Cash Flow Calculator | Net Cash Flow",
+  title: "Net Cash Flow Calculator | Cash Inflow & Outflow",
   description:
-    "Calculate net cash flow from inflows and outflows. Free business calculator for cash flow analysis.",
+    "Use this free net cash flow calculator to subtract business cash outflows from inflows, check your cash flow margin, and quickly see whether cash increased or decreased.",
   path: "/cash-flow-calculator",
-  keywords: ["cash flow calculator", "net cash flow", "business cash flow"],
+  keywords: ["net cash flow calculator", "cash flow calculator", "business cash flow calculator", "cash inflow and outflow calculator"],
 });
 
 const faqItems = [
@@ -30,10 +30,10 @@ export default function CashFlowPage() {
     <article className="mx-auto max-w-4xl px-4 py-8">
       <header className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-slate-800 ">
-          Cash Flow Calculator
+          Net Cash Flow Calculator
         </h1>
         <p className="text-lg text-slate-600 ">
-          Calculate net cash flow from your inflows and outflows. Instant results for business cash analysis.
+          Add up money coming in and going out to calculate net cash flow and cash flow margin for a business or reporting period.
         </p>
       </header>
 

@@ -1,168 +1,63 @@
 import Link from "next/link";
 import { CalculatorCard } from "@/components/CalculatorCard";
 import { AdBlock } from "@/components/AdBlock";
-import Image from "next/image";
 import { homeMetadata } from "@/lib/seo";
 
 export const metadata = homeMetadata();
 
+const featured = [
+  { title: "Loan Calculator", description: "Estimate monthly payments, total interest, and your repayment schedule.", href: "/loan-calculator", icon: "↗" },
+  { title: "ROI Calculator", description: "See your return on investment and compare the result with your starting cost.", href: "/roi-calculator", icon: "⌁" },
+  { title: "Net Cash Flow", description: "Compare cash coming in and going out to understand your net cash position.", href: "/cash-flow-calculator", icon: "⇄" },
+];
+
 export default function HomePage() {
   return (
-    <article className="mx-auto max-w-4xl px-4 py-8">
-      <header className="mb-12 text-center">
-        <div className="flex justify-center items-center gap-2 mb-3">   
-          <Image
-            src="/Jcalc.png"
-            alt="JCalc"
-            width={120}
-            height={80}
-            className="h-16 w-auto"
-          />
-          <h1 className="mb-3 text-4xl font-bold text-slate-800 text-center">
-          JCalc
-       </h1>
-       </div>
-        
-        <p className="text-xl text-slate-600">
-          Smart Online Calculators for Everyday Math and Finance
-        </p>
-        <p className="mt-4 max-w-2xl mx-auto text-slate-600">
-          Free, fast, and easy-to-use calculators for loans, investments,
-          percentages, and more. No signup, no downloads—just results.
-        </p>
-      </header>
+    <article className="py-8 sm:py-12">
+      <section className="relative isolate overflow-hidden rounded-[2rem] bg-[#111c30] px-6 py-12 text-white shadow-xl sm:px-10 sm:py-16 lg:px-14">
+        <div className="pointer-events-none absolute -right-24 -top-32 -z-10 h-96 w-96 rounded-full bg-blue-500/25 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 left-1/3 -z-10 h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
+        <p className="mb-4 inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-200">Clear answers. Better decisions.</p>
+        <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">The numbers you need, without the guesswork.</h1>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Free, easy-to-use calculators for finance, business, and everyday math. Enter your numbers and get a clear answer in seconds.</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="#calculators" className="rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/20 hover:bg-blue-400">Explore calculators <span aria-hidden="true">↓</span></Link>
+          <Link href="/net-present-value-calculator" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">Calculate project NPV <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300"><span>✓ Free to use</span><span>✓ No account needed</span><span>✓ Results update instantly</span></div>
+      </section>
 
-      <AdBlock slot="header" format="horizontal" className="mb-10 min-h-[90px]" />
+      <AdBlock slot="header" format="horizontal" className="my-8 min-h-[90px]" />
 
-      <section aria-labelledby="popular-calculators">
-        <h2 id="popular-calculators" className="mb-6 text-2xl font-semibold text-slate-800 ">
-          Popular Calculators
-        </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CalculatorCard
-            title="Loan Calculator"
-            description="Calculate monthly payments, total interest, and amortization for any fixed-rate loan."
-            href="/loan-calculator"
-            icon="💰"
-          />
-          <CalculatorCard
-            title="ROI Calculator"
-            description="Measure return on investment. Enter initial and final value for instant ROI percentage."
-            href="/roi-calculator"
-            icon="📈"
-          />
-          <CalculatorCard
-            title="Percentage Calculator"
-            description="X% of Y, Y is what % of X, and percentage change. Handles discounts, tips, and more."
-            href="/percentage-calculator"
-            icon="%"
-          />
+      <section id="calculators" className="scroll-mt-28 pt-8" aria-labelledby="featured-heading">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-blue-700">Start here</p><h2 id="featured-heading" className="text-2xl font-bold text-slate-900 sm:text-3xl">Popular calculators</h2></div>
+          <span className="text-sm text-slate-500">Practical tools, ready when you are</span>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((item) => <CalculatorCard key={item.href} {...item} />)}
         </div>
       </section>
 
       <AdBlock slot="below-result" format="rectangle" className="my-10 min-h-[250px]" />
 
-      <section className="space-y-8">
-        <h2 id="financial-calculators" className="text-2xl font-semibold text-slate-800 ">
-          Financial Calculators
-        </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CalculatorCard
-            title="Loan Calculator"
-            description="Estimate monthly payments for mortgages, auto loans, and personal loans."
-            href="/loan-calculator"
-            icon="💰"
-          />
-          <CalculatorCard
-            title="ROI Calculator"
-            description="Calculate return on investment for stocks, real estate, and business ventures."
-            href="/roi-calculator"
-            icon="📈"
-          />
-          <CalculatorCard
-            title="Percentage Calculator"
-            description="Solve percentage problems: X% of Y, what percent, and percentage change."
-            href="/percentage-calculator"
-            icon="%"
-          />
+      <section className="pt-4" aria-labelledby="business-heading">
+        <div className="mb-6"><p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-blue-700">For your work and plans</p><h2 id="business-heading" className="text-2xl font-bold text-slate-900 sm:text-3xl">Business & finance tools</h2></div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <CalculatorCard title="Net Present Value (NPV)" description="Discount future project cash flows to today and assess an investment at your required return." href="/net-present-value-calculator" icon="∑" />
+          <CalculatorCard title="Profit & Pricing" description="Work out profit, markup, and margin to set a price with confidence." href="/profit-pricing-calculator" icon="$" />
+          <CalculatorCard title="Break-even" description="Find the sales volume that covers your fixed and variable costs." href="/break-even-calculator" icon="⌖" />
+          <CalculatorCard title="Growth" description="Calculate CAGR and growth rates across a chosen period." href="/growth-calculator" icon="↗" />
+          <CalculatorCard title="Unit Economics" description="Understand customer acquisition cost, lifetime value, and their ratio." href="/unit-economics-calculator" icon="◎" />
+          <CalculatorCard title="Percentage" description="Calculate a percentage, percentage change, discounts, and more." href="/percentage-calculator" icon="%" />
         </div>
-
-        <h2 id="business-calculators" className="text-2xl font-semibold text-slate-800 ">
-          Business Calculators
-        </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CalculatorCard
-            title="Profit & Pricing"
-            description="Calculate profit, margin, markup, and optimal pricing."
-            href="/profit-pricing-calculator"
-            icon="📊"
-          />
-          <CalculatorCard
-            title="Break-even"
-            description="Find how many units to sell to cover costs."
-            href="/break-even-calculator"
-            icon="⚖️"
-          />
-          <CalculatorCard
-            title="Cash Flow"
-            description="Net cash flow from inflows and outflows."
-            href="/cash-flow-calculator"
-            icon="💵"
-          />
-          <CalculatorCard
-            title="Growth"
-            description="CAGR and growth rate for any metric."
-            href="/growth-calculator"
-            icon="📈"
-          />
-          <CalculatorCard
-            title="Unit Economics"
-            description="CAC, LTV, and LTV:CAC ratio."
-            href="/unit-economics-calculator"
-            icon="🎯"
-          />
-        </div>
-
-        <AdBlock slot="between-content" format="horizontal" className="min-h-[90px]" />
-
-        <section>
-          <h2 id="about-online-calculators" className="mb-4 text-2xl font-semibold text-slate-800 ">
-            About Online Calculators
-          </h2>
-          <p className="text-slate-600 ">
-            Online calculators provide instant, accurate results for everyday
-            math and finance tasks. Whether you&apos;re planning a loan, evaluating
-            an investment, or working with percentages, JCalc delivers reliable
-            answers without signup or installation. Our tools run entirely in
-            your browser—your data never leaves your device.
-          </p>
-          <p className="mt-4 text-slate-600">
-            JCalc is designed for clarity and speed. Each calculator includes
-            formula explanations, example calculations, and FAQs to help you
-            understand the results. We offer a growing suite of calculators for
-            finance, math, and everyday life. Bookmark this page for quick
-            access to all tools.
-          </p>
-        </section>
-
-        <section>
-          <h2 id="recently-added" className="mb-4 text-2xl font-semibold text-slate-800 ">
-            All Tools
-          </h2>
-          <ul className="space-y-2 text-slate-600 ">
-            <li><Link href="/loan-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Loan Calculator</Link> — Monthly payments</li>
-            <li><Link href="/roi-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">ROI Calculator</Link> — Investment returns</li>
-            <li><Link href="/percentage-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Percentage Calculator</Link> — X% of Y, percent change</li>
-            <li><Link href="/profit-pricing-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Profit & Pricing</Link> — Margin and markup</li>
-            <li><Link href="/break-even-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Break-even</Link> — Break-even analysis</li>
-            <li><Link href="/cash-flow-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Cash Flow</Link> — Net cash flow</li>
-            <li><Link href="/growth-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Growth</Link> — CAGR and growth rate</li>
-            <li><Link href="/unit-economics-calculator" className="text-[#66A3FF] underline hover:text-[#5592e6]">Unit Economics</Link> — CAC and LTV</li>
-          </ul>
-        </section>
       </section>
 
-      <AdBlock slot="footer" format="horizontal" className="mt-12 min-h-[90px]" />
+      <section className="mt-12 grid gap-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 lg:grid-cols-[.7fr_1.3fr]">
+        <div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-blue-700">Built for clarity</p><h2 className="text-2xl font-bold text-slate-900">Useful answers, explained simply</h2></div>
+        <div className="space-y-4 text-slate-600"><p>JCalc brings everyday math and financial planning tools into one straightforward place. Each calculator is designed to make inputs easy to understand and results quick to use.</p><p>Calculations run in your browser, and many tools include formula explanations and examples so you can see how the answer is worked out.</p><div className="flex flex-wrap gap-x-5 gap-y-2 pt-1 text-sm font-medium"><Link className="text-blue-700 hover:text-blue-900" href="/about">Learn about JCalc →</Link><Link className="text-blue-700 hover:text-blue-900" href="/contact">Get in touch →</Link></div></div>
+      </section>
+      <AdBlock slot="footer" format="horizontal" className="mt-10 min-h-[90px]" />
     </article>
   );
 }

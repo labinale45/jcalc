@@ -11,6 +11,7 @@ const CALCULATORS = [
   { name: "Profit & Pricing", href: "/profit-pricing-calculator", description: "margin and markup" },
   { name: "Break-even", href: "/break-even-calculator", description: "find break-even point" },
   { name: "Cash Flow", href: "/cash-flow-calculator", description: "net cash flow" },
+  { name: "Net Present Value (NPV)", href: "/net-present-value-calculator", description: "discount future project cash flows" },
   { name: "Growth", href: "/growth-calculator", description: "CAGR and growth rate" },
   { name: "Unit Economics", href: "/unit-economics-calculator", description: "CAC and LTV" },
 ];
@@ -18,7 +19,7 @@ const CALCULATORS = [
 export function InternalLinks({ currentTool }: InternalLinksProps) {
   return (
     <section
-      className="rounded-lg border border-slate-200 bg-white p-6"
+      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
       aria-labelledby="related-tools-heading"
     >
       <h2 id="related-tools-heading" className="mb-4 text-lg font-semibold text-slate-800">
@@ -29,7 +30,7 @@ export function InternalLinks({ currentTool }: InternalLinksProps) {
           <li key={calc.href}>
             <Link
               href={calc.href}
-              className="text-[#66A3FF] underline underline-offset-2 hover:text-[#5592e6] focus:outline-none focus:ring-2 focus:ring-[#66A3FF]"
+              className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-4 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {calc.name}
             </Link>

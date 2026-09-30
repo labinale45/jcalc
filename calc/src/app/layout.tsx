@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 const defaultDescription =
-  "Free online calculators for loans, ROI, percentages, and more. Smart tools for everyday math and finance. Fast, accurate, no signup required.";
+  "Free online calculators for loans, ROI, cash flow, percentages, and business decisions. Get clear results fast with no signup required.";
 
 const ogImage = absoluteUrl(DEFAULT_OG_IMAGE_PATH);
 
@@ -30,7 +30,7 @@ const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "JCalc | Smart Online Calculators for Everyday Math and Finance",
+    default: "JCalc | Free Online Calculators for Finance, Business & Math",
     template: "%s | JCalc",
   },
   description: defaultDescription,
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "JCalc | Smart Online Calculators for Everyday Math and Finance",
+    title: "JCalc | Free Online Calculators for Finance, Business & Math",
     description: defaultDescription,
     images: [{ url: ogImage, alt: `${SITE_NAME} — online calculators` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JCalc | Smart Online Calculators for Everyday Math and Finance",
+    title: "JCalc | Free Online Calculators for Finance, Business & Math",
     description: defaultDescription,
     images: [ogImage],
   },
@@ -88,7 +88,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#66A3FF",
+  themeColor: "#111c30",
 };
 
 export default function RootLayout({

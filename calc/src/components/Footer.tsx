@@ -4,10 +4,10 @@ import { AdBlock } from "./AdBlock";
 export function Footer() {
   return (
     <footer className="mt-16 border-t border-slate-200 bg-white pb-[env(safe-area-inset-bottom)]">
-      <div className="mx-auto max-w-4xl px-4 py-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <AdBlock slot="footer" format="horizontal" className="mb-8 min-h-[90px]" />
         <nav aria-label="Legal and site links" className="mb-6">
-          <ul className="flex flex-wrap gap-4 text-sm">
+          <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
             <li>
               <Link href="/" className="text-slate-600 hover:text-[#66A3FF]">
                 Home
@@ -60,7 +60,12 @@ export function Footer() {
             </li>
             <li>
               <Link href="/cash-flow-calculator" className="text-slate-600 hover:text-[#66A3FF]">
-                Cash Flow
+                Net Cash Flow
+              </Link>
+            </li>
+            <li>
+              <Link href="/net-present-value-calculator" className="text-slate-600 hover:text-[#66A3FF]">
+                Net Present Value (NPV)
               </Link>
             </li>
             <li>

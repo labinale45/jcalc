@@ -4,9 +4,9 @@ import { DEFAULT_OG_IMAGE_PATH, SITE_NAME, SITE_URL, absoluteUrl } from "./site"
 const defaultOgImage = absoluteUrl(DEFAULT_OG_IMAGE_PATH);
 
 export function homeMetadata(): Metadata {
-  const title = "JCalc | Smart Online Calculators for Everyday Math and Finance";
+  const title = "JCalc | Free Online Calculators for Finance, Business & Math";
   const description =
-    "Free online calculators for loans, ROI, percentages, business metrics, and more. Smart tools for everyday math and finance—fast, accurate, no signup required.";
+    "Free online calculators for loans, ROI, cash flow, percentages, and business decisions. Get clear results fast with no signup required.";
   return {
     title: { absolute: title },
     description,

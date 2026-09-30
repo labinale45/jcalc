@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #334155;
-  --primary: #66A3FF;
-  --primary-hover: #5592e6;
-  --secondary: #A2CB8B;
-  --secondary-hover: #8fb877;
+  --background: #f5f7fb;
+  --foreground: #142033;
+  --primary: #155eef;
+  --primary-hover: #004eeb;
+  --secondary: #10a979;
+  --secondary-hover: #07895f;
   --muted: #64748b;
   --muted-bg: #f1f5f9;
-  --border: #e2e8f0;
+  --border: #e4e9f1;
 }
 
 @theme inline {
@@ -23,17 +23,51 @@
   --font-mono: var(--font-geist-mono);
 }
 
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
+::selection { background: #dbeafe; color: #12398a; }
+a, button, input, select, summary { -webkit-tap-highlight-color: transparent; }
+a { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease; }
+button, input, select { font: inherit; }
+:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
 
-/* Touch-friendly tap targets on mobile */
-@media (max-width: 1023px) {
-  a,
-  button {
-    -webkit-tap-highlight-color: transparent;
-  }
+/* Consistent, calmer surfaces across every calculator and information page. */
+main article {
+  width: min(100%, 68rem);
+  margin-inline: auto;
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+}
+main article > header { max-width: 48rem; margin-bottom: 2rem; }
+main article > header h1 {
+  color: #111c30;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+main article > header p { max-width: 43rem; line-height: 1.75; }
+main article h2, main article h3 { letter-spacing: -0.025em; }
+main article p { line-height: 1.75; }
+main article :is(.rounded-lg, .rounded-xl) { border-radius: 1rem; }
+main article :is(.border-slate-200, .border-slate-300) { border-color: #e4e9f1; }
+main article :is(.bg-white) { box-shadow: 0 8px 24px rgb(15 23 42 / 0.035); }
+main article input, main article select {
+  min-height: 3rem;
+  border-radius: .75rem;
+  border-color: #d8e0eb;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+main article input:focus, main article select:focus {
+  border-color: #155eef;
+  box-shadow: 0 0 0 4px rgb(21 94 239 / 0.11);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }

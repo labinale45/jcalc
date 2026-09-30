@@ -1,7 +1,7 @@
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const siteDescription =
-  "Free online calculators for loans, ROI, percentages, business metrics, and everyday math. Fast, accurate tools with no signup required.";
+  "Free online calculators for loans, ROI, cash flow, percentages, business metrics, and everyday math. Get clear results fast with no signup required.";
 
 export function JsonLd() {
   const data = {

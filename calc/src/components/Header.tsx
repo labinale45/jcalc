@@ -14,7 +14,7 @@ function isActive(pathname: string, href: string) {
 }
 
 const focusBarLink =
-  "focus-visible:outline-none focus-visible:bg-white/20 focus-visible:font-semibold focus-visible:text-[#A2CB8B] focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-4";
+  "focus-visible:outline-none focus-visible:bg-white/15 focus-visible:font-semibold focus-visible:text-white focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-4";
 
 export function Header() {
   const pathname = usePathname();
@@ -25,13 +25,13 @@ export function Header() {
     setOpenMenuId(null);
   }, [pathname]);
 
-  const linkClass = `rounded-lg px-3 py-2 text-sm text-white hover:bg-white/15 ${focusBarLink}`;
-  const activeClass = "bg-white/20 font-semibold text-[#A2CB8B] underline decoration-2 underline-offset-4";
+  const linkClass = `rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/10 hover:text-white ${focusBarLink}`;
+  const activeClass = "bg-white/10 font-semibold text-white underline decoration-2 underline-offset-4";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white pt-[env(safe-area-inset-top)]">
-      <div className="bg-blue-500">
-        <div className="mx-auto flex max-w-full items-center justify-between gap-3 px-3 py-3 sm:px-4">
+    <header className="sticky top-0 z-50 border-b border-slate-800 bg-[#111c30] pt-[env(safe-area-inset-top)] shadow-sm">
+      <div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <Link
             href="/"
             className={`flex min-w-0 shrink items-center gap-2 rounded-lg py-1 pr-2 ${focusBarLink}`}
@@ -44,7 +44,7 @@ export function Header() {
               height={40}
               className="h-9 w-auto sm:h-10"
             />
-            <span className="truncate text-lg font-bold text-white sm:text-xl">JCalc</span>
+            <span className="truncate text-lg font-bold tracking-tight text-white sm:text-xl">JCalc</span>
           </Link>
 
           {/* Desktop: grouped navigation */}
@@ -105,7 +105,7 @@ export function Header() {
                           aria-current={active ? "page" : undefined}
                           className={`block px-3 py-2 text-sm focus-visible:outline-none focus-visible:bg-[#66A3FF]/15 focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-2 ${
                             active
-                              ? "bg-[#66A3FF]/10 font-medium text-[#5592e6] underline decoration-2 underline-offset-2"
+                              ? "bg-blue-50 font-medium text-blue-700 underline decoration-2 underline-offset-2"
                               : "text-slate-700 hover:bg-slate-50"
                           }`}
                         >
@@ -142,7 +142,7 @@ export function Header() {
           {/* Mobile: hamburger */}
           <button
             type="button"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white hover:bg-white/15 focus-visible:outline-none focus-visible:bg-white/20 lg:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white hover:bg-white/10 focus-visible:outline-none focus-visible:bg-white/20 lg:hidden"
             onClick={() => setMobileOpen(true)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav-drawer"
@@ -155,10 +155,7 @@ export function Header() {
         </div>
 
         {/* Tablet: horizontal scroll strip — quick access without hamburger */}
-        <div className="border-t border-white/10 px-2 pb-2 pt-1 lg:hidden">
-          <p className="mb-1 px-1 text-[10px] font-medium uppercase tracking-wide text-white/70 sm:text-xs">
-            Quick scroll — swipe
-          </p>
+        <div className="border-t border-white/10 px-3 py-2 lg:hidden">
           <div
             className="-mx-1 flex gap-1 overflow-x-auto overscroll-x-contain px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ WebkitOverflowScrolling: "touch" }}
@@ -172,8 +169,8 @@ export function Header() {
                 aria-current={pillActive ? "page" : undefined}
                 className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium focus-visible:outline-none focus-visible:bg-white/30 focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-2 sm:text-sm ${
                   pillActive
-                    ? "bg-white/25 font-semibold text-white"
-                    : "bg-white/10 text-white/95 hover:bg-white/20"
+                    ? "bg-white/20 font-semibold text-white"
+                    : "bg-white/5 text-white/80 hover:bg-white/10"
                 }`}
               >
                 {label}
@@ -186,7 +183,7 @@ export function Header() {
 
       <MobileNavDrawer open={mobileOpen} onClose={() => setMobileOpen(false)} pathname={pathname} />
 
-      <div className="mx-auto max-w-4xl px-4 pb-2">
+      <div className="mx-auto max-w-7xl px-4 pb-2 sm:px-6">
         <AdBlock slot="header" format="horizontal" className="min-h-[90px]" />
       </div>
     </header>
